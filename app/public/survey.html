@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Survey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Survey Questions</h1>
+      <hr>
+      <h2><strong>About You<strong></h2>
+
+        <div class="form-group">
+          <label for="name">Name (Required)</label>
+          <input type="name" class="form-control" id="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="photo">Link to photo image (Required)</label>
+          <input type="text" class="form-control" id="photo" placeholder="Photo">
+        </div>
+        <hr>
+        <h2><strong>Question 1<strong></h2>
+          <label>Your mind is always buzzing with unexplored ideas and plans.</label>
+          <select id = "q1">
+            <option value="" selected>Select an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        <h2><strong>Question 2<strong></h2>
+          <label>You rarely do something just out of sheer curiosity</label>
+          <select id="q2">
+            <option value="" selected>Select an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        <br></br>
+        <div>
+        <button type="button" id="submit-btn" class="btn btn-primary btn-lg">Submit</button></a>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var userResults = [];
+      $("#submit-btn").on("click", function() {
+        var select = (s)
+        if (select === "Select an option") {
+          alert("Please answer all questions before submitting!")
+        }
+      });
+    </script>
+
+  </body>
+</html>
