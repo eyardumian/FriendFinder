@@ -43,18 +43,131 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
           </select>
+          <h2><strong>Question 3<strong></h2>
+            <label>You rarely do something just out of sheer curiosity</label>
+            <select id="q3">
+              <option value="" selected>Select an option</option>
+              <option value="1">1 (Strongly Disagree)</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 (Strongly Agree)</option>
+            </select>
+            <h2><strong>Question 4<strong></h2>
+              <label>You rarely do something just out of sheer curiosity</label>
+              <select id="q4">
+                <option value="" selected>Select an option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+              </select>
+              <h2><strong>Question 5<strong></h2>
+                <label>You rarely do something just out of sheer curiosity</label>
+                <select id="q5">
+                  <option value="" selected>Select an option</option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+                </select>
+                <h2><strong>Question 6<strong></h2>
+                  <label>You rarely do something just out of sheer curiosity</label>
+                  <select id="q6">
+                    <option value="" selected>Select an option</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                  </select>
+                  <h2><strong>Question 7<strong></h2>
+                    <label>You rarely do something just out of sheer curiosity</label>
+                    <select id="q7">
+                      <option value="" selected>Select an option</option>
+                      <option value="1">1 (Strongly Disagree)</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5 (Strongly Agree)</option>
+                    </select>
+                    <h2><strong>Question 8<strong></h2>
+                      <label>You rarely do something just out of sheer curiosity</label>
+                      <select id="q8">
+                        <option value="" selected>Select an option</option>
+                        <option value="1">1 (Strongly Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Strongly Agree)</option>
+                      </select>
+                      <h2><strong>Question 9<strong></h2>
+                        <label>You rarely do something just out of sheer curiosity</label>
+                        <select id="q9">
+                          <option value="" selected>Select an option</option>
+                          <option value="1">1 (Strongly Disagree)</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                        <h2><strong>Question 10<strong></h2>
+                          <label>You rarely do something just out of sheer curiosity</label>
+                          <select id="q10">
+                            <option value="" selected>Select an option</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                          </select>
         <br></br>
         <div>
         <button type="button" id="submit-btn" class="btn btn-primary btn-lg">Submit</button></a>
         </div>
     </div>
+
+    <div class="modal-content" id=modalMatch>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2>You have a soul mate!</h2>
+      </div>
+      <div class="modal-body">
+        <h2 id="nameMatch"></h2>
+        <img id="imgMatch" src="" alt="" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
     <script type="text/javascript">
-    var userResults = [];
+    //var userResults = [];
       $("#submit-btn").on("click", function() {
-        var select = (s)
-        if (select === "Select an option") {
-          alert("Please answer all questions before submitting!")
+
+        var newFriend = {
+          newName: $("#name").val().trim(),
+          newFriendImage: $("#photo").val().trim(),
+          newFriendsArray: [$("#q1").val().trim(), $("#q2").val().trim(), $("#q3").val().trim(),$("#q4").val().trim(), $("#q5").val().trim(), $("#q6").val().trim(),
+                        $("#q7").val().trim(), $("#q8").val().trim(), $("#q9").val().trim(), $("#q6").val().trim()]
         }
+        console.log(newFriend);
+
+        var currentURL = window.location.origin;
+        $.post(currentURL + "/api/friends", newFriend, function(data) {
+          $("#nameMatch").text(data.name);
+          $("#imgMatch").attr("src", friendImage);
+          $("#modelMatch").modal("show");
+
+        });
+        return false;
+
+        // var select =
+        // if (select === "Select an option") {//How do I determine if all questions answered?
+        //   alert("Please answer all questions before submitting!")
+
       });
     </script>
 
